@@ -25,3 +25,15 @@ Windows IIS Solitaire
 dockerfile
 FROM microsoft/iis:nanoserver
 COPY app C:/inetpub/wwwroot
+
+so open cmd in the my-solitaire folder:
+docker build -t my-solitaire:iis .
+
+docker run -d -p 8000:80 --name my-solitaire my-solitaire:iis
+docker stop my-solitaire
+docker commit <ImageId> 08005624/my-solitaire:iis
+docker push 08005624/my-solitaire
+
+
+
+
