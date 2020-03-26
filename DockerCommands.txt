@@ -1,0 +1,27 @@
+// open cmd here
+// docker run --rm -it -p 8000:80 nginx
+docker run -it -p 8000:80 -v C:\Source\SandBox\solitaire\app:/usr/share/nginx/html nginx
+
+docker cp <dir_path>. <container_instance>:<container_path>
+
+Example:
+
+docker run -d -p 8000:80 --name my-solitaire nginx
+docker ps
+localhost:8000
+docker stop my-solitaire
+
+docker start my-solitaire
+docker exec my-solitaire ls /usr/share/nginx/html
+docker cp C:\Users\CYBERDYNE\Desktop\docker-windows-getting-started\materials\solitaire\app\. my-solitaire:/usr/share/nginx/html
+docker exec my-solitaire ls/usr/share/nginx/html
+
+docker history my-solitaire
+
+build + tag an image using . for dockerfile from root context
+docker build -t <my-image>:<my_tag> .
+
+Windows IIS Solitaire
+dockerfile
+FROM microsoft/iis:nanoserver
+COPY app C:/inetpub/wwwroot
